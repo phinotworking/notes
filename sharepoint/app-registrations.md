@@ -34,5 +34,7 @@ https://medium.com/ng-sp/sharepoint-add-in-permission-xml-cheat-sheet-64b87d8d76
 
 ## References
 https://www.ryanschouten.com/2017/01/31/manually-registering-a-sharepoint-add-in/
+
 https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/add-in-permissions-in-sharepoint
+
 [How can you update an existing app registration?](https://social.msdn.microsoft.com/Forums/SqlServer/en-US/08ad2d88-42b0-48dc-ac86-3d84f7f24f35/updating-existing-sharepoint-app-registration-details?forum=appsforsharepoint)
