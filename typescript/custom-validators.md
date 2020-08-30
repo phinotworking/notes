@@ -19,9 +19,9 @@ Custom validator that depends on values within the current component
 ``` typescript
 ValidateMandatoryCheckboxList(fieldCode: string): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-        console.log('ValidateMandatoryCheckboxList', control.value);
+        console.log('control current value is:', control.value);
 
-        // If the dependent control is NOT displayed, then this control doesn't need a value
+	// If the dependent control is NOT displayed, then this control doesn't need a value
         // and so the validation will pass
         var controlDefinition = this.formDefinition.filter(f => f.fieldCode == fieldCode);
         if (controlDefinition && controlDefinition.length) {
