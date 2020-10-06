@@ -15,5 +15,11 @@ go
 EXEC sp_addrolemember 'db_datareader', 'svc_reports';
 ```
 
+If you still can't connect, try
+```sql
+GRANT CONNECT TO [svc_reports]
+GO
+```
+
 ### References
 https://azure.microsoft.com/en-us/blog/adding-users-to-your-sql-azure-database/
