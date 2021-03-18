@@ -94,3 +94,7 @@ These results show the output as proper key-value pairs:
 |1|power|windows|1
 |2|power|windows|1
 |2|block|heater|1
+
+
+### References
+https://www.mssqltips.com/sqlservertip/4138/advanced-json-techniques-in-sql-server-part-3/
