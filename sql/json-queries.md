@@ -28,7 +28,7 @@ And you get results that are slightly different (namely, they are missing the ou
 ```
 This can be important if, for example, you are extracting bits of data to combine into larger JSON strings.
 
-###JSON_QUERY() SQL Server Function
+### JSON_QUERY() SQL Server Function
 This new function allows you to retrieve an object or an array from within a larger JSON string. Let's say we have this simple table:
 
 ```sql
@@ -57,12 +57,10 @@ SELECT CarID, Features = JSON_QUERY(Attributes, '$.features')
 ```
 These results show the set of features for each car:
 
-```
-CarID	Features
------	----------------------------------------
-1	[{"power windows":1}]
-2	[{"power windows":1},{"block heater":1}]
-```
+|CarID|Features|
+|:-----|:----------------------------------------|
+|1|[{"power windows":1}]|
+|2|[{"power windows":1},{"block heater":1}]|
 
 We can break it down further to a feature per row, by using CROSS APPLY():
 
@@ -75,6 +73,7 @@ SELECT c.CarID, x.[value]
 The results, though, still contain some of the JSON scaffolding:
 
 |CarID|value|
+|:---|:----|
 |1|{"power windows":1}|
 |2|{"power windows":1}|
 |2|{"block heater":1}|
@@ -91,6 +90,7 @@ These results show the output as proper key-value pairs:
 
 
 |CarID|key|value|
+|:---|:----|:----|
 |1|power|windows|1
 |2|power|windows|1
 |2|block|heater|1
