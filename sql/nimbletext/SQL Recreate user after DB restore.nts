@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Session xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Data>svc_cas
+svc_reports</Data>
+  <Pattern>drop user $0
+go
+
+CREATE USER $0 FROM LOGIN [$0];
+go
+EXEC sp_addrolemember 'db_datareader', '$0';
+EXEC sp_addrolemember 'db_datawriter', '$0';
+GO
+
+
+GRANT CONNECT TO [$0]
+GO
+
+&lt;% if ($rownumOne == $numrows) { 
+"---------------------------------------------------"
++ "\n" + "-- UPDATE PROD STORAGE LINKS TO TEST"
++ "\n" + "-- Please ensure that you have first run AzCopy to copy the actual blobs first **"
++ "\n" + "---------------------------------------------------"
++ "\n" + "update competition set"
++ "\n" + "    scheduleurl = replace(scheduleurl, 'https://casfilesprod.blob.core.windows.net', 'https://casfilestest.blob.core.windows.net'),"
++ "\n" + "    imageurl    = replace(imageurl,    'https://casfilesprod.blob.core.windows.net', 'https://casfilestest.blob.core.windows.net')"
++ "\n" + ""
++ "\n" + "update competition set ExtendedPropertiesJson = replace(ExtendedPropertiesJson, 'https://casfilesprod.blob.core.windows.net', 'https://casfilestest.blob.core.windows.net')"
++ "\n" + "update Section set EntryInformation  = replace(EntryInformation, 'https://casfilesprod.blob.core.windows.net', 'https://casfilestest.blob.core.windows.net')"
+} %&gt;</Pattern>
+  <RowDelimiter>\n</RowDelimiter>
+  <ColumnDelimiter>,</ColumnDelimiter>
+</Session>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Session xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Data>Donation</Data>
+  <Pattern>-- Disable Temporal Tables
+ALTER TABLE dbo.[$0] SET (SYSTEM_VERSIONING = OFF);
+GO
+drop table __$0History
+GO
+
+-- Re-enable temporal tables
+
+ALTER TABLE dbo.[$0]
+	Add PERIOD FOR SYSTEM_TIME (SysStartTime,SysEndTime);
+GO
+ALTER TABLE dbo.[$0]
+  Set  (SYSTEM_VERSIONING = ON  (HISTORY_TABLE = dbo.[__$0History]));
+GO</Pattern>
+  <RowDelimiter>\n</RowDelimiter>
+  <ColumnDelimiter>,</ColumnDelimiter>
+</Session>

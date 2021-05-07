@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Session xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Data>Ancillary,FormId,Form</Data>
+  <Pattern>-- @Params - Table_Name, FK_Column_Name, FK_Table
+
+-- Create Foreign Key
+ALTER TABLE [dbo].[$0]  WITH NOCHECK ADD  CONSTRAINT [FK_$0_&lt;% $1.replace(/(Id)$/gm,'') %&gt;] FOREIGN KEY([$1])
+	REFERENCES [dbo].[$2] ([ID])
+GO
+
+-- Create Index
+CREATE NONCLUSTERED INDEX [IX_$0_$1] ON [dbo].[$0] ([$1])
+GO</Pattern>
+  <RowDelimiter>\n</RowDelimiter>
+  <ColumnDelimiter>,</ColumnDelimiter>
+</Session>
