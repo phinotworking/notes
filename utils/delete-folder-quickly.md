@@ -1,3 +1,5 @@
+The following should quickly delete all files in a folder.
+This works for a CMD prompt (not PowerShell)
 ```
 RMDIR /Q/S node_modules
 ```
