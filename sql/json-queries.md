@@ -1,3 +1,10 @@
+### Querying JSON Data
+Start off by confirming what type of data you want to query first
+`JSON_VALUE` extracts a scalar value from a JSON string.
+`JSON_QUERY` extracts an object or an array from a JSON string.
+
+https://docs.microsoft.com/en-us/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server?view=sql-server-ver15#JSONCompare
+
 In CTP 3.2, Microsoft added a new option to allow you to suppress the array wrappers around JSON output. For example, if you run this query:
 
 ```sql
